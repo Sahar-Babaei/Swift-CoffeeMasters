@@ -147,7 +147,7 @@ struct ContentView : View {
         //EmptyView() // this is like an empty Div in html. put it here because swift needs something in the {}
         Text("hello There")
         //everything is public in our files so offer can be used here. But be careful to not repeat names accidentally
-        Offer(title: "real offer 1", description: "real description 1")
+        OffersPage()
         
     }
 }
