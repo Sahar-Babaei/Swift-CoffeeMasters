@@ -22,15 +22,15 @@ struct Offer: View {
                 // ^^ "leading and trailing" are used instead of right and left to help with langugaes that are read right to left
                 //.padding(.horizontal, 50)
                 .font(.title) // we use title because it is used by users in accessibility, they can change the default to work in a way that works best for them. so using fixed numbers isn't the best idea.
-            
-                
-            
+                .background(Color("CardBackground"))
             
             
             Text(description)
                 .padding(.vertical,10)
                 .padding(.horizontal, 50)
                 .font(.body)
+                .background(Color("CardBackground"))
+                
         }
     }
 }
