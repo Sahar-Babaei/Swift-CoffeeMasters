@@ -155,3 +155,12 @@ struct ConentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+#Preview {
+    ContentView()
+    
+    
+    
+    
+}
