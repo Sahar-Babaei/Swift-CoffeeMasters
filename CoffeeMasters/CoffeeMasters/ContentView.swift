@@ -88,8 +88,8 @@ struct ContentView: View {
 */
 
 
-// MARK:  --> Starting on the real app:
-
+// MARK:  --> testing part two:
+/*
 
 struct ContentView: View {
     @State var userName = "your name" //this is not a normal variable, it is a state variable that changes state of somehting. We use "@" and "State" right after it
@@ -132,4 +132,26 @@ struct ConentView_Previews: PreviewProvider {
         ContentView()
     }
 
+}
+*/
+
+
+
+
+
+//--> MARK: starting on the real app:
+// to make a new view, on left panel, right click on project folder (not the one with app stor icon) and go "new file" or go "new file from template" and select "new swift ui view"
+
+struct ContentView : View {
+    var body : some View{
+        EmptyView() // this is like an empty Div in html. put it here because swift needs something in the {}
+        Text("hello")
+    }
+}
+
+
+struct ConentView_Previews: PreviewProvider {
+    static var previews: some View{
+        ContentView()
+    }
 }
