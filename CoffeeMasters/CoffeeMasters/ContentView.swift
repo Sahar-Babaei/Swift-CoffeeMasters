@@ -146,8 +146,37 @@ struct ContentView : View {
     var body : some View{
         //EmptyView() // this is like an empty Div in html. put it here because swift needs something in the {}
         Text("hello There")
-        //everything is public in our files so offer can be used here. But be careful to not repeat names accidentally
-        OffersPage()
+            .font(.body)
+            .fontWeight(.light)
+        
+        //to create tabs for app : you create a TabView with children that are modififiers that are .tabItem
+        TabView{
+            MenuPage()
+                .tabItem{ // tab item creates a tab
+                    Image(systemName: "cup.and.saucer") //you can use system icons or add your own png/svg icons
+                    Text("Menu")
+                }
+            
+            OffersPage() // now the offer page is an element in the tab
+            //everything is public in our files so offer can be used here. But be careful to not repeat names accidentally
+                .tabItem{
+                    Image(systemName: "tag")
+                    Text("offers")
+                }
+            
+            OrdersPage()
+                .tabItem{
+                    Image(systemName: "cart")
+                    Text("order")
+                }
+            InfoPage()
+                .tabItem{
+                    Image(systemName: "info")
+                    Text("info")
+                }
+        }
+        
+       
         
     }
 }
