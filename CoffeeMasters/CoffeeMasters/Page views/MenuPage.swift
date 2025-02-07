@@ -8,24 +8,30 @@
 import SwiftUI
 
 struct MenuPage: View {
+    
+    @EnvironmentObject var menuManager : MenuManager //no need to make an instance of it, it is automatically injected
+    
     var body: some View {
         NavigationView{
             List{
-                ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                    NavigationLink {
+                ForEach(menuManager.menu) { category in
+                    Text(category.name)
+                    
+                    ForEach(category.products){ product in NavigationLink {
                         DetailsPage() //goes to detail page
                     } label : {
-                        ProductItem(product: Product(id: 1, name: "Products", description: "some description", price: 1.25, image: "")) //what you are clicking on
+                        ProductItem(product: product )
                     }
-                    
+                        
+                    }
                 }
-            }
-        }.navigationTitle("products") //The navigation view needs a navigation Title modifier
-        //TODO: Mentor? why isn't there a title for mine?
-        
+            }.navigationTitle("products") //The navigation view needs a navigation Title modifier
+            //TODO: Mentor? why isn't there a title for mine?
+            
+        }
     }
 }
 
 #Preview {
-    MenuPage()
+    MenuPage().environmentObject(MenuManager())
 }
