@@ -6,20 +6,26 @@
 //
 
 import Foundation
+import Alamofire
 
 class MenuManager: ObservableObject{
-    @Published var menu : [Category] = [
-        Category (name: "Hot coffee", products:[
-            //we don't want this type of hard coded stuff.
-            // we wanna go to the network and get our data from there
-            // for that, there is an API
-
-            Product(id:0, name:"", description:"", price:1.24, image: ""),
-            Product(id:0, name:"", description:"", price:1.24, image: ""),
-            Product(id:0, name:"", description:"", price:1.24, image: ""),
-            Product(id:0, name:"", description:"", price:1.24, image: ""),
-            Product(id:0, name:"", description:"", price:1.24, image: "")
-        ])
-    ]
+    @Published var menu : [Category] = []
+    
+    init() {
+        refreshItemsFromNetwork() //when app starts, refresh and get data from network
+    }
+    
+    //a function that calls Alamofire (AF)
+    func refreshItemsFromNetwork()  {
+            AF.request("https://firtman.github.io/coffeemasters/api/menu.json")
+                .responseDecodable(of: [Category].self) { response in
+                    if let menuFromNetwork = response.value {
+                      //  print(response.value)
+                        self.menu = menuFromNetwork
+                    }
+                }
+        }
+    
+    
     
 }
