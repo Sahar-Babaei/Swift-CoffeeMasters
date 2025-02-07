@@ -14,11 +14,20 @@ import SwiftUI
 
 @main
 struct CoffeeMastersApp: App {
+    
+    var menuManager = MenuManager()
+    var cartManager = CartManager()
+    
+    
     //an app needs a body, therefore this body variable :
     // on ipad you can run more than 1 app on the screen at the same time, not on iphone
     var body: some Scene { //a scene is mostly used in ipads, as an app window
         WindowGroup {
             ContentView() //content view is the other file we have on the left.
+            
+            //these global objects need to implement the protocol.
+                .environmentObject(menuManager)
+                .environmentObject(cartManager)
         }
     }
 }
