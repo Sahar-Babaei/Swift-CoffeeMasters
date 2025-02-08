@@ -143,6 +143,9 @@ import SwiftUI
 // to make a new view, on left panel, right click on project folder (not the one with app stor icon) and go "new file" or go "new file from template" and select "new swift ui view"
 
 struct ContentView : View {
+    
+    @EnvironmentObject var cartManager: CartManager
+    
     var body : some View{
         //EmptyView() // this is like an empty Div in html. put it here because swift needs something in the {}
         Text("hello There")
@@ -169,6 +172,8 @@ struct ContentView : View {
                     Image(systemName: "cart")
                     Text("order")
                 }
+                .badge(cartManager.cart.count)
+            
             InfoPage()
                 .tabItem{
                     Image(systemName: "info")

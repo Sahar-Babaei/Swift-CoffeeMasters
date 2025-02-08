@@ -23,7 +23,7 @@ struct ProductItem: View {
                         Text(product.name) //we made a product Instance in the vars above
                             .font(.title3)
                             .bold()
-                        Text("$ \(product.price)")
+                        Text("$ \(product.price,specifier: "%.2f")") //this specifier is taking the value and only allowing 2 decimals so our price won't look like $1.2500000
                             .font(.caption)
 
                     }.padding(8)

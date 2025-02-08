@@ -30,7 +30,7 @@ struct OrdersPage: View {
                             //in the cart manager we made a tupple and because it is a product, it has its own id, hence the 0
                             //TODO: Mentor?? i'm confused
                             item in
-                            OrderItem()
+                            OrderItem(item: item)
                         }
                     }.listRowBackground(Color("Background"))
                     
