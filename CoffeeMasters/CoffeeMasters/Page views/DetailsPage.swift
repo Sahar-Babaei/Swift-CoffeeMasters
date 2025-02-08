@@ -17,6 +17,10 @@ struct DetailsPage: View {
     
     @EnvironmentObject var cartManager : CartManager
     
+    //this one isn't a "EnvironmentObject" , it's just "Environemnt"
+    //allows you to bring in (as dependencies) parts from the OS itself like screensize, time zone, the current language, the current orientation, etc.
+    @Environment(\.dismiss) var dismiss
+    
     
     var body: some View {
         ScrollView {
@@ -50,6 +54,7 @@ struct DetailsPage: View {
             Button("Add \(quantity) to Cart") {
                 //TODO
                 cartManager.add(product: product, quantity:quantity)
+                dismiss() //we add this so when user adds items, the page will be dismissed and go back to menu so they won't stay on their current drink of choice's page
                 
             }
                 .padding()

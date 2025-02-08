@@ -16,6 +16,7 @@ struct OrdersPage: View {
     
     //@Environment brings the singleton that was injected in the app
     @EnvironmentObject var cartManager: CartManager
+   
     
     
     var body: some View {
@@ -51,9 +52,9 @@ struct OrdersPage: View {
                             Spacer()
                             Text("Total")
                             Spacer()
-                            //                            Text("$ \(cartManager.total(), specifier: "%.2f")")
-                            //                                .bold()
-                            Spacer()
+                            Text("$ \(cartManager.total(), specifier: "%.2f")")
+                                .bold()
+                            Spacer()//spacers are like flexbox
                         }
                     }.listRowBackground(Color.clear)
                     

@@ -197,4 +197,7 @@ struct ContentView : View {
 //This here is the same as above ^^
 #Preview {
     ContentView()
+        .environmentObject(CartManager())
+        .environmentObject(MenuManager())
+    // ^^ i added these and my preview started working again
 }
