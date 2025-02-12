@@ -9,12 +9,14 @@ import SwiftUI
 
 struct MenuPage: View {
     
+    //if the data inside this object changes, refresh everything that depends on it.
     @EnvironmentObject var menuManager : MenuManager //no need to make an instance of it, it is automatically injected
     
     var body: some View {
         NavigationView{
             List{
-                ForEach(menuManager.menu) { category in
+                //use foreach items when u dont care about index or number.
+                ForEach(menuManager.menu) { category in //category is "i"
                     Text(category.name)
                     
                     ForEach(category.products){ product in NavigationLink {
@@ -26,7 +28,7 @@ struct MenuPage: View {
                     }
                 }
             }.navigationTitle("products") //The navigation view needs a navigation Title modifier
-            //TODO: Mentor? why isn't there a title for mine?
+            
             
         }
     }
